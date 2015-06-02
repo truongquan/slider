@@ -1,7 +1,7 @@
 <?php namespace QuanDT\Slider;
 
 use App\Http\Controllers\Controller;
-use QuanDT\Slider\eloquent\Slider;
+use QuanDT\Slider\repositories\Slider;
 
 class SliderController extends Controller
 {

@@ -1,4 +1,4 @@
-<?php namespace QuanDT\Slider\eloquent;
+<?php namespace QuanDT\Slider\repositories;
 
 use Bosnadev\Repositories\Contracts\RepositoryInterface;
 use Bosnadev\Repositories\Eloquent\Repository;
