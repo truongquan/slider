@@ -3,7 +3,7 @@
 use App\Http\Controllers\Controller;
 use QuanDT\Slider\repositories\SliderImage;
 use QuanDT\Slider\repositories\Slider;
-//use QuanDT\Slider
+use QuanDT\Slider\Requests\SliderImageRequest;
 
 
 class SliderImagesController extends Controller
@@ -36,8 +36,13 @@ class SliderImagesController extends Controller
         return view('slider::add', compact('sliders'));
     }
 
-    public function update($id = null)
+    public function update(SliderImageRequest $request, $id = null)
     {
+        if ($this->slider_image->saveModel($request, $id)) {
 
+            return 'update successfully';
+        }
+
+        return 'update failed!';
     }
 }

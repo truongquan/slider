@@ -1,7 +1,6 @@
 <?php namespace QuanDT\Slider\Repositories;
 
-use Bosnadev\Repositories\Contracts\RepositoryInterface;
-use Bosnadev\Repositories\Eloquent\Repository;
+use QuanDT\Slider\Repositories\SliderRepository as Repository;
 
 class SliderImage extends Repository
 {
@@ -14,5 +13,21 @@ class SliderImage extends Repository
     function model()
     {
         return 'QuanDT\Slider\models\SliderImage';
+    }
+
+    function saveModel($request, $id = null)
+    {
+        $data = $request->except('_token', 'img');
+
+        if ($request->hasFile('img')) {
+           $data['image_origin'] = $this->uploadFile($request->file('img'));
+        }
+
+        if ($id) {
+
+            return $this->updateRich($data, $id);
+        }
+            
+        return $this->create($data);
     }
 }
