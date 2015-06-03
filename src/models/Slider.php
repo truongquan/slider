@@ -1,4 +1,4 @@
-<?php namespace QuanDT\Slider\models;
+<?php namespace QuanDT\Slider\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

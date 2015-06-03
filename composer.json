@@ -9,7 +9,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "bosnadev/repositories": "0.*"
+        "bosnadev/repositories": "0.*",
+        "intervention/image": "^2.2"
     },
     "autoload": {
         "psr-4": {

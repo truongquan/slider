@@ -1,4 +1,4 @@
-<?php namespace QuanDT\Slider\models;
+<?php namespace QuanDT\Slider\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class SliderImage extends Model {
      *
      * @var array
      */
-    protected $fillable = ['slider_id', 'image_origin', 'image_encrypt', 'caption'];
+    protected $fillable = ['slider_id', 'image_original', 'image_encrypt', 'caption'];
 
     /**
      * The attributes excluded from the model's JSON form.

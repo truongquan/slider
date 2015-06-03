@@ -13,6 +13,11 @@ class Slider extends Repository
 
     function model()
     {
-        return 'QuanDT\Slider\models\Slider';
+        return 'QuanDT\Slider\Models\Slider';
+    }
+
+    function loadConfig($sliderType)
+    {
+        
     }
 }

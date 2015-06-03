@@ -17,7 +17,7 @@ class CreateQuandtSliderImagesTable extends Migration {
 			$table->increments('id');
 
 			$table->integer('slider_id');
-			$table->string('image_origin');
+			$table->string('image_original');
 			$table->string('image_encrypt');
 			$table->string('caption');
 

@@ -1,6 +1,8 @@
 <?php namespace QuanDT\Slider\Repositories;
 
-use QuanDT\Slider\Repositories\SliderRepository as Repository;
+use Bosnadev\Repositories\Contracts\RepositoryInterface;
+use Bosnadev\Repositories\Eloquent\Repository;
+use Image;
 
 class SliderImage extends Repository
 {
@@ -12,7 +14,7 @@ class SliderImage extends Repository
 
     function model()
     {
-        return 'QuanDT\Slider\models\SliderImage';
+        return 'QuanDT\Slider\Models\SliderImage';
     }
 
     function saveModel($request, $id = null)
@@ -20,7 +22,8 @@ class SliderImage extends Repository
         $data = $request->except('_token', 'img');
 
         if ($request->hasFile('img')) {
-           $data['image_origin'] = $this->uploadFile($request->file('img'));
+           $image = $this->uploadFile($request->file('img'));
+           $data = array_merge($data, $image);
         }
 
         if ($id) {
@@ -29,5 +32,50 @@ class SliderImage extends Repository
         }
             
         return $this->create($data);
+    }
+
+    /**
+     * @param  array  $data
+     * @param  $id
+     * @return mixed
+     */
+    public function updateRich(array $data, $id) {
+        if (!($model = $this->model->find($id))) {
+            return false;
+        }
+
+        $this->deleteFile($model->image_encrypt);
+
+        return $model->fill($data)->save();
+    }
+
+    function uploadFile($file)
+    {
+        $original_name = $file->getClientOriginalName();
+        $encrypt_name = str_random(40).'.'.$file->getClientOriginalExtension();
+        $des_path = public_path(config('slider.image_path'));
+
+        if (!is_dir($des_path)) {
+            mkdir($des_path, 0777, true);
+        }
+
+        $file->move($des_path, $encrypt_name);
+        $thumb_path = public_path(config('slider.thumb_path'));
+
+        if (!is_dir($thumb_path)) {
+            mkdir($thumb_path, 0777, true);    
+        }
+
+        Image::make($des_path.'/'.$encrypt_name)->resize(200, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($thumb_path.'/'.$encrypt_name);
+
+        return ['image_original' => $original_name, 'image_encrypt' => $encrypt_name];
+    }
+
+    function deleteFile($file_name)
+    {
+        @unlink(public_path(config('slider.image_path').'/'.$file_name));
+        @unlink(public_path(config('slider.thumb_path').'/'.$file_name));
     }
 }

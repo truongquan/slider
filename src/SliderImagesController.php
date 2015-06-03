@@ -20,7 +20,9 @@ class SliderImagesController extends Controller
 
     public function index()
     {
-        return view('slider::index');
+        $result = $this->slider_image->all();
+
+        return view('slider::backend.sliderImages.index')->withResult($result);
     }
 
     public function form($id = null)
@@ -28,19 +30,19 @@ class SliderImagesController extends Controller
         $sliders = $this->slider->lists('name', 'id');
 
         if ($id) {
-            $slides = $this->slider_image->find($id);
+            $slide = $this->slider_image->find($id);
 
-            return view('slider::edit', compact('sliders', 'slides'));
+            return view('slider::backend.sliderImages.edit', compact('sliders', 'slide'));
         }
 
-        return view('slider::add', compact('sliders'));
+        return view('slider::backend.sliderImages.add', compact('sliders'));
     }
 
     public function update(SliderImageRequest $request, $id = null)
     {
         if ($this->slider_image->saveModel($request, $id)) {
 
-            return 'update successfully';
+            return redirect('slider-content');
         }
 
         return 'update failed!';
