@@ -3,6 +3,8 @@
 use App\Http\Controllers\Controller;
 use QuanDT\Slider\repositories\Slider;
 use Illuminate\Http\Request;
+use QuanDT\Slider\Requests\SliderRequest;
+use Input;
 
 class SliderController extends Controller
 {
@@ -15,17 +17,17 @@ class SliderController extends Controller
 
     public function index()
     {
-        $result = $this->slider_image->all();
+        $result = $this->slider->all();
 
         return view('slider::backend.sliders.index')->withResult($result);
     }
 
-    public function selectType()
+    public function getSelectType()
     {
         return view('slider::backend.sliders.selectType');
     }
 
-    public function form($id = null)
+    public function form(Request $request, $id = null)
     {
         if ($id) {
             $slider = $this->slider->find($id);
@@ -33,21 +35,21 @@ class SliderController extends Controller
             return view('slider::backend.sliders.edit')->withSlider($slider);
         }
 
-        if (!Request::has('sliderType')) {
+        if (!$request->has('sliderType')) {
 
             return redirect('slider/select-type');
         }
 
-        return view('slider::backend.sliders.add')->withSliderType(Request::input('sliderType'));
+        return view('slider::backend.sliders.add')->with('sliderType', $request->input('sliderType'));
     }
 
-    public function update(SliderImageRequest $request, $id = null)
+    public function update(SliderRequest $request, $id = null)
     {
-        if ($this->slider_image->saveModel($request, $id)) {
+        if ($this->slider->saveModel($request, $id)) {
 
-            return redirect('slider-content');
+            return redirect('slider');
         }
 
-        return 'update failed!';
+        return 'Update failed';
     }
 }

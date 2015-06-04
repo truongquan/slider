@@ -11,7 +11,7 @@
 <thead>
     <tr>
         <th>ID</th>
-        <th>Images</th>
+        <th>Name</th>
         <th colspan="2">Operations</th>
     </tr>
 </thead>
@@ -20,9 +20,10 @@
 @foreach ($result as $row)
     <tr>
         <td>{{$row->id}}</td>
-        <td><img src="{!! url(config('slider.thumb_path').'/'.$row->image_encrypt) !!}"></td>
-        <td><a href="{!! url('slider-content/edit/'.$row->id) !!}">Edit</a></td>
-        <td><a href="#">Remove</a></td>
+        <td>{{$row->name}}</td>
+        <td>{{$row->slug}}</td>
+        <td><a href="{!! url('slider/edit/'.$row->id) !!}">Edit</a></td>
+        <td><a href="{!! url('slider/delete/'.$row->id) !!}">Remove</a></td>
     </tr>
 @endforeach 
 </tbody>

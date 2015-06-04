@@ -3,7 +3,16 @@ return [
     'image_path' => '/quandt/slider/images',
     'thumb_path' => '/quandt/slider/images/thumb',
 
-    'slider_type' => [
+    'type_label' => [
+        'image' => 'Image',
+        'custom' => 'Custom',
+        'custom2' => 'Custom 2',
+        'one_slide' => 'One Slide',
+        'lazy_load' => 'Lazy Load',
+        'auto_height' => 'Auto Height',
+    ],
+
+    'type' => [
         'image' => [
             'autoPlay' => 3000,
             'items' => 4,
@@ -33,7 +42,7 @@ return [
               'navigation' => 'true',
         ],
 
-        'one-slide' => [
+        'one_slide' => [
             'navigation' => 'true', // Show next and prev buttons
             'slideSpeed' => 300,
             'paginationSpeed' => 400,
@@ -58,7 +67,7 @@ return [
         ],
     ],
 
-    'type_title' => [
+    'opt_label' => [
         'autoPlay' => 'Auto Play',
         'items' => 'Items',
         'itemsDesktop' => 'Items Desktop',
@@ -74,5 +83,28 @@ return [
         'goToFirstSpeed' => 'Go To First Speed',
         'autoHeight' => 'Auto Height',
         'transitionStyle' => 'Transition Style',
+    ],
+
+    'opt_type' => [
+        'autoPlay' => 'text',
+        'items' => 'text',
+        'itemsDesktop' => 'text',
+        'itemsDesktopSmall' => 'text',
+        'itemsTablet' => 'text',
+        'itemsMobile' => 'select',
+        'itemsCustom' => 'text',
+        'navigation' => 'select',
+        'slideSpeed' => 'text',
+        'paginationSpeed' => 'text',
+        'singleItem' => 'select',
+        'lazyLoad' => 'select',
+        'goToFirstSpeed' => 'text',
+        'autoHeight' => 'select',
+        'transitionStyle' => 'select',
+    ],
+
+    'boolean' => [
+        'true' => 'True',
+        'false' => 'False',
     ],
 ];

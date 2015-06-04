@@ -21,10 +21,42 @@ function select_box($name, $label, $options, $selected = false)
     }
 
     foreach ($options as $key => $value) {
-        $html .= '<option value="'.$key.'">'.$value.'</option>';
+        $selected = ($selected !== false && $selected === $key) ? 'selected="selected"' : '';
+        $html .= '<option value="'.$key.'" '.$selected.' >'.$value.'</option>';
     }
 
     $html .= '</select></div>';
+
+    return $html;
+}
+
+function config_type($type, $element_value = null)
+{
+   $elements = config('slider.type');
+   $element_type = config('slider.opt_type');
+   $element_label = config('slider.opt_label');
+   $html = '';
+
+    foreach ($elements[$type] as $key => $value) {
+        if ($element_type[$key] == 'text') {
+            $html .= input_text($key, $element_label[$key], $value);
+        } elseif ($element_type[$key] == 'select') {
+            $html .= select_box($key, $element_label[$key], config('slider.boolean'), $value);
+        }
+    }
+
+    return $html;
+}
+
+function showAllErrors($errors)
+{
+    $html = '<ul class="has-error">';
+    if(count($errors->all())) {
+        foreach ($errors->all() as $error) {
+            $html .= '<li>'.$error.'</li>';
+        }
+    }
+    $html .= '</ul>';
 
     return $html;
 }

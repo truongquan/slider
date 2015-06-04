@@ -16,8 +16,19 @@ class Slider extends Repository
         return 'QuanDT\Slider\Models\Slider';
     }
 
-    function loadConfig($sliderType)
+    function saveModel($request, $id = null)
     {
-        
+        $data = $request->except('_token');
+
+        if (trim($data['slug']) === '') {
+            $data['slug'] = str_slug($data['name']);
+        }
+
+        if ($id) {
+
+            return $this->updateRich($data, $id);
+        }
+            
+        return $this->create($data);
     }
 }
