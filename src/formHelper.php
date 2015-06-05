@@ -21,8 +21,8 @@ function select_box($name, $label, $options, $selected = false)
     }
 
     foreach ($options as $key => $value) {
-        $selected = ($selected !== false && $selected === $key) ? 'selected="selected"' : '';
-        $html .= '<option value="'.$key.'" '.$selected.' >'.$value.'</option>';
+        $select = ($selected == $key) ? 'selected="selected"' : '';
+        $html .= '<option value="'.$key.'" '.$select.' >'.$value.'</option>';
     }
 
     $html .= '</select></div>';
@@ -38,6 +38,8 @@ function config_type($type, $element_value = null)
    $html = '';
 
     foreach ($elements[$type] as $key => $value) {
+        $value = (is_null($element_value)) ? $value : $element_value[$key];
+
         if ($element_type[$key] == 'text') {
             $html .= input_text($key, $element_label[$key], $value);
         } elseif ($element_type[$key] == 'select') {

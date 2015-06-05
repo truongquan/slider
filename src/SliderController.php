@@ -4,7 +4,7 @@ use App\Http\Controllers\Controller;
 use QuanDT\Slider\repositories\Slider;
 use Illuminate\Http\Request;
 use QuanDT\Slider\Requests\SliderRequest;
-use Input;
+use QuanDT\Slider\Criteria\Slider\WithSliderImage;
 
 class SliderController extends Controller
 {
@@ -51,5 +51,20 @@ class SliderController extends Controller
         }
 
         return 'Update failed';
+    }
+
+    public function display($id)
+    {
+        $this->slider->pushCriteria(new WithSliderImage());
+        $slider = $this->slider->find($id);
+
+        return view('slider::frontend.'.$slider->sliderType)->withSlider($slider);
+    }
+
+    public function delete($id)
+    {
+        $this->slider->delete($id);
+
+        return redirect('slider');
     }
 }

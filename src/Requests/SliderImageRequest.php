@@ -21,9 +21,16 @@ class SliderImageRequest extends Request {
 	 */
 	public function rules()
 	{
-		return [
-			//
-		];
+		if (Request::has('_edit')) {
+			$rules = ['caption' => 'required'];
+		} else {
+			$rules = [
+				'img' => 'required',
+				'caption' => 'required',
+			];
+		}
+		
+		return $rules;
 	}
 
 }

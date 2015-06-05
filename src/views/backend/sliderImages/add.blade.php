@@ -1,12 +1,14 @@
-@extends('app')
+@extends(config('slider.layout_backend'))
 
-@section('content')
+@section(config('slider.section_backend'))
 
 <div class="col-md-6 col-md-offset-3">
 <form method="POST" class="form-horizontal" action="{!! url('slider-content/create') !!}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     
-    {!! select_box('slider_id', 'Slider', $sliders, old('slider_id')) !!}
+    <?php $slider_id = isset($_GET['slider_id']) ? $_GET['slider_id'] : old('slider_id') ?>
+
+    {!! select_box('slider_id', 'Slider', $sliders, $slider_id) !!}
     {!! input_text('caption', 'Slide Caption', old('caption')) !!}
     {!! input_text('img', 'Slide Image', old('img'), 'file') !!}
 

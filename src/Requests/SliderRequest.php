@@ -23,7 +23,7 @@ class SliderRequest extends Request {
 	{
 		return [
 				'name' => 'required',
-				'slug' => 'alpha_dash',
+				'slug' => 'required|alpha_dash|unique:quandt_slider',
 				'sliderType' => 'required'
 			];
 	}

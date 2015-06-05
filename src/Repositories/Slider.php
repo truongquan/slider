@@ -20,10 +20,6 @@ class Slider extends Repository
     {
         $data = $request->except('_token');
 
-        if (trim($data['slug']) === '') {
-            $data['slug'] = str_slug($data['name']);
-        }
-
         if ($id) {
 
             return $this->updateRich($data, $id);

@@ -3,13 +3,19 @@ return [
     'image_path' => '/quandt/slider/images',
     'thumb_path' => '/quandt/slider/images/thumb',
 
+    'layout_backend' => 'slider::layouts.index',
+    'section_backend' => 'content',
+
+    'layout_frontend' => 'slider::layouts.index',
+    'section_frontend' => 'content',
+
     'type_label' => [
         'image' => 'Image',
-        'custom' => 'Custom',
-        'custom2' => 'Custom 2',
         'one_slide' => 'One Slide',
         'lazy_load' => 'Lazy Load',
-        'auto_height' => 'Auto Height',
+        // 'custom' => 'Custom',
+        // 'custom2' => 'Custom 2',
+        // 'auto_height' => 'Auto Height',
     ],
 
     'type' => [
@@ -18,28 +24,6 @@ return [
             'items' => 4,
             'itemsDesktop' => '[1199, 3]',
             'itemsDesktopSmall' => '[979, 3]',
-        ],
-
-        'custom' => [
-            'items' => 10,
-            'itemsDesktop' => '[1000,5]',
-            'itemsDesktopSmall' => '[900,3]',
-            'itemsTablet' => '[600,2]',
-            'itemsMobile' => 'false',
-        ],
-
-        'custom2' => [
-            'itemsCustom' => '[
-                            [0, 2],
-                            [450, 4],
-                            [600, 7],
-                            [700, 9],
-                            [1000, 10],
-                            [1200, 12],
-                            [1400, 13],
-                            [1600, 15]
-                          ]',
-              'navigation' => 'true',
         ],
 
         'one_slide' => [
@@ -55,16 +39,38 @@ return [
             'navigation' => 'true',
         ],
 
-        'auto_height' => [
-            'autoPlay' => 3000,
-            'stopOnHover' => 'true',
-            'navigation' => 'true',
-            'paginationSpeed' => 1000,
-            'goToFirstSpeed' => 2000,
-            'singleItem' => 'true',
-            'autoHeight' => 'true',
-            'transitionStyle' => 'fade',
-        ],
+        // 'custom' => [
+        //     'items' => 10,
+        //     'itemsDesktop' => '[1000,5]',
+        //     'itemsDesktopSmall' => '[900,3]',
+        //     'itemsTablet' => '[600,2]',
+        //     'itemsMobile' => 'false',
+        // ],
+
+        // 'custom2' => [
+        //     'itemsCustom' => '[
+        //                     [0, 2],
+        //                     [450, 4],
+        //                     [600, 7],
+        //                     [700, 9],
+        //                     [1000, 10],
+        //                     [1200, 12],
+        //                     [1400, 13],
+        //                     [1600, 15]
+        //                   ]',
+        //       'navigation' => 'true',
+        // ],
+
+        // 'auto_height' => [
+        //     'autoPlay' => 3000,
+        //     'stopOnHover' => 'true',
+        //     'navigation' => 'true',
+        //     'paginationSpeed' => 1000,
+        //     'goToFirstSpeed' => 2000,
+        //     'singleItem' => 'true',
+        //     'autoHeight' => 'true',
+        //     'transitionStyle' => 'fade',
+        // ],
     ],
 
     'opt_label' => [

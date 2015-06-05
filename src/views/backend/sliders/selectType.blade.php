@@ -1,6 +1,6 @@
-@extends('app')
+@extends(config('slider.layout_backend'))
 
-@section('content')
+@section(config('slider.section_backend'))
 
 <div class="col-md-6 col-md-offset-3">
 <form method="GET" class="form-horizontal" action="{!! url('slider/create') !!}">

@@ -1,10 +1,11 @@
-@extends('app')
+@extends(config('slider.layout_backend'))
 
-@section('content')
+@section(config('slider.section_backend'))
 
 <div class="col-md-6 col-md-offset-3">
 <form method="POST" class="form-horizontal" action="{!! url('slider-content/edit/'.$slide->id) !!}" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="_edit" value="1"> 
     
     {!! select_box('slider_id', 'Slider', $sliders, $slide->slider_id) !!}
     {!! input_text('caption', 'Slide Caption', $slide->caption) !!}

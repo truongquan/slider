@@ -78,4 +78,12 @@ class SliderImage extends Repository
         @unlink(public_path(config('slider.image_path').'/'.$file_name));
         @unlink(public_path(config('slider.thumb_path').'/'.$file_name));
     }
+
+    function remove($id)
+    {
+        $model = $this->model->find($id);
+        $this->deleteFile($model->image_encrypt);
+
+        return $this->delete($id);
+    }
 }

@@ -17,6 +17,7 @@ class CreateQuandtSliderTable extends Migration {
 			$table->increments('id');
 
 			$table->string('name');
+			$table->string('slug');
 			$table->string('sliderType');
 			$table->string('navigation', 10)->nullable();
 			$table->bigInteger('slideSpeed')->nullable();
