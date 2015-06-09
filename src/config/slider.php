@@ -1,7 +1,7 @@
 <?php
 return [
-    'image_path' => '/quandt/slider/images',
-    'thumb_path' => '/quandt/slider/images/thumb',
+    'image_path' => 'packages/quandt/slider/images',
+    'thumb_path' => 'packages/quandt/slider/images/thumb',
 
     'layout_backend' => 'slider::layouts.index',
     'section_backend' => 'content',

@@ -17,7 +17,7 @@ class SliderServiceProvider extends ServiceProvider {
 		$this->loadViewsFrom(__DIR__.'/views', 'slider');
 
 		$this->publishes([
-			__DIR__.'/views' => base_path('resources/views/quandt/slider'),
+			__DIR__.'/views' => base_path('resources/views/packages/quandt/slider'),
 		]);
 
 		$this->publishes([
