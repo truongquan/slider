@@ -8,13 +8,12 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
     {!! showAllErrors($errors) !!}
-    
     {!! input_text('name', 'Slider Name', $slider->name) !!}
     {!! input_text('slug', 'Slider Slug Name', $slider->slug) !!}
     {!! config_type($slider->sliderType, $slider) !!}
     <input type="hidden" name="sliderType" value="{{$slider->sliderType}}" />
-
-    <input type="submit" class="btn btn-default" value="Save" />
+    <a href="{!! url('slider') !!}" class="btn btn-success">Back</a>
+    <input type="submit" class="btn btn-success" value="Save" />
 </form>
 </div>
 

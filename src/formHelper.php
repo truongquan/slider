@@ -52,13 +52,13 @@ function config_type($type, $element_value = null)
 
 function showAllErrors($errors)
 {
-    $html = '<ul class="has-error">';
+    $html = '<div class="has-error">';
     if(count($errors->all())) {
         foreach ($errors->all() as $error) {
-            $html .= '<li>'.$error.'</li>';
+            $html .= '<label class="control-label">'.$error.'</label><br />';
         }
     }
-    $html .= '</ul>';
+    $html .= '</div>';
 
     return $html;
 }

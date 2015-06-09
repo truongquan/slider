@@ -29,7 +29,7 @@ class SliderServiceProvider extends ServiceProvider {
 		], 'config');
 
 		$this->publishes([
-			__DIR__.'/assets' => asset('/'),
+			__DIR__.'/assets' => public_path('/'),
 		], 'asset');
 	}
 

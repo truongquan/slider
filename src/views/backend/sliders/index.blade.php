@@ -5,8 +5,6 @@
 <div class="col-md-6 col-md-offset-3">
 <h1>Slider</h1>
 
-<h2><a href="{!! url('slider/create') !!}">Create New Slider</a></h2>
-
 <table class="table table-striped">
 
 <thead>
@@ -32,6 +30,7 @@
 </tbody>
 
 </table>
+<h2><a href="{!! url('slider/create') !!}" class="btn btn-success" >Create New Slider</a></h2>
 </div>
 
 @stop

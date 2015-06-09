@@ -7,6 +7,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" name="_edit" value="1"> 
     
+    {!! showAllErrors($errors) !!}
     {!! select_box('slider_id', 'Slider', $sliders, $slide->slider_id) !!}
     {!! input_text('caption', 'Slide Caption', $slide->caption) !!}
     
@@ -16,8 +17,8 @@
     </div>
     
     {!! input_text('img', 'Slide Image', old('img'), 'file') !!}
-
-    <input type="submit" class="btn btn-default" value="Save" />
+    <a href="{!! url('slider-content') !!}" class="btn btn-success">Back</a>
+    <input type="submit" class="btn btn-success" value="Save" />
 </form>
 </div>
 

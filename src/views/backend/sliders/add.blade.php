@@ -6,15 +6,14 @@
 <h1>Default Configuration</h1>
 <form method="POST" class="form-horizontal" action="{!! url('slider/create') !!}">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+   
     {!! showAllErrors($errors) !!}
-    
     {!! input_text('name', 'Slider Name', old('name')) !!}
     {!! input_text('slug', 'Slider Slug Name', old('slug')) !!}
     {!! config_type($sliderType) !!}
     <input type="hidden" name="sliderType" value="{{$sliderType}}" />
-
-    <input type="submit" class="btn btn-default" value="Create" />
+    <a href="{!! url('slider') !!}" class="btn btn-success">Back</a>
+    <input type="submit" class="btn btn-success" value="Create" />
 </form>
 </div>
 

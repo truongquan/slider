@@ -5,15 +5,6 @@
 <div class="col-md-6 col-md-offset-3">
 <h1>Image slider</h1>
 
-<h2>
-    @if ($slider_id)
-    <a href="{!! url('slider-content/create?slider_id='.$slider_id) !!}">
-    @else
-    <a href="{!! url('slider-content/create') !!}">
-    @endif
-        Create New Image Slider
-    </a></h2>
-
 <table class="table table-striped">
 
 <thead>
@@ -36,6 +27,16 @@
 </tbody>
 
 </table>
+
+<h2>
+@if ($slider_id)
+<a href="{!! url('slider-content/create?slider_id='.$slider_id) !!}" class="btn btn-success">
+@else
+<a href="{!! url('slider-content/create') !!}" class="btn btn-success">
+@endif
+    Create New Image Slider
+</a></h2>
+
 </div>
 
 @stop
