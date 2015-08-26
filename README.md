@@ -30,7 +30,7 @@ You can override the default views by copying to the resources/views/packages/qu
 
 You can override the default config too (file config will be copied to /config/slider.php):
 
-`php artisan vendor::publish --tag=config --force`
+`php artisan vendor:publish --tag=config --force`
 
 ## Usage
 
